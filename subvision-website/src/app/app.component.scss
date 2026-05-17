@@ -97,6 +97,7 @@ nav {
         }
 
         &.nav-open {
+
             .nav-menu {
                 padding-top: var(--spacing-small);
                 max-height: 240px;
@@ -193,6 +194,17 @@ nav {
         .nav-stars {
             justify-content: flex-start;
         }
+    }
+}
+
+.page-content {
+    transition: filter 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    nav.nav-open~.page-content {
+        filter: blur(6px);
+        pointer-events: none;
     }
 }
 
