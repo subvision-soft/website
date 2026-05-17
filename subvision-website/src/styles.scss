@@ -15,8 +15,15 @@ body {
         font-style: normal;
     }
 
+    @font-face {
+        font-family: 'Cabinet Grotesk';
+        src: url('/fonts/CabinetGrotesk-Variable.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
 
-    color-scheme: light dark;
+
+    color-scheme: dark;
     --sky-aqua: #2acaeeff;
     --amber-flame: #ffba00ff;
     --ruby-red: #b40324ff;
@@ -48,11 +55,73 @@ body {
 
 a {
     text-decoration: none;
-    transition: 250ms ease-in-out;
     color: var(--text-light);
     cursor: pointer;
+}
+
+a.moving-letters {
+    --font-size: 0.8rem;
+    --font-shadow: 0.8rem;
+    --m: 0;
+    position: relative;
+    display: inline-block;
+    padding: 8px 8px;
+    font-family: 'Chillax', sans-serif;
+    font-weight: 700;
+    line-height: var(--font-size);
+    letter-spacing: 0.5px;
+    font-size: var(--font-size);
+    color: color-mix(in srgb, var(--text-light) 80%, transparent);
+    background: transparent;
+    border-radius: calc(var(--spacing-small) / 2);
+    transition: 0.32s ease;
+    overflow: hidden;
+
+    &:before {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        transform-origin: 0 bottom 0;
+        transform: scaleY(0);
+        transition: 0.32s ease-out;
+    }
+
+    span {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        overflow: hidden;
+        text-shadow: 0 var(--font-shadow) 0 var(--text-light);
+
+        i {
+            z-index: 1;
+            display: block;
+            backface-visibility: hidden;
+            font-style: normal;
+            transition: transform 0.32s ease;
+            transform: translateY(var(--m));
+            $i: 1;
+
+            @while $i < 26 {
+                &:nth-child(#{$i}) {
+                    transition-delay: $i / 40 + s;
+                }
+
+                $i: $i + 1;
+            }
+        }
+    }
 
     &:hover {
-        opacity: 0.8;
+        i {
+            --m: calc(var(--font-size) * -1);
+        }
+
+        background: color-mix(in srgb, var(--text-light) 20%, transparent);
     }
 }

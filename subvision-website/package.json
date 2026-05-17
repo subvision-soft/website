@@ -18,6 +18,8 @@
     "@angular/platform-browser": "v20-lts",
     "@angular/platform-browser-dynamic": "v20-lts",
     "@angular/router": "v20-lts",
+    "@ng-icons/octicons": "31.4.0",
+    "@ng-icons/core": "31.4.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
