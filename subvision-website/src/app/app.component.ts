@@ -13,6 +13,7 @@ import { NgIconComponent } from '@ng-icons/core';
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'subvision-website';
   isDark = false;
+  isNavOpen = false;
   readonly repoOwner = 'subvision-soft';
   readonly repoName = 'subvision-core';
   starsCount: number | null = null;
@@ -37,6 +38,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   toggleTheme(): void {
     this.applyTheme(this.isDark ? 'light' : 'dark');
+  }
+
+  toggleNav(): void {
+    this.isNavOpen = !this.isNavOpen;
   }
 
   private applyTheme(theme: 'light' | 'dark'): void {

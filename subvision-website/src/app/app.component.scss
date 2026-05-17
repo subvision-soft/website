@@ -15,22 +15,110 @@ nav {
     z-index: 1000;
     transition: all 0.3s ease;
 
+    .nav-menu {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-small);
+        margin-left: auto;
+        flex: 1;
+
+        @media (max-width: 768px) {
+            flex: unset;
+
+        }
+    }
+
+    .nav-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-small);
+        margin-left: auto;
+    }
+
+    .nav-toggle {
+        display: none;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0;
+        border-radius: 999px;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font-family: inherit;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    .nav-toggle-icon {
+        width: 1.1rem;
+        height: 1.1rem;
+        display: inline-flex;
+    }
+
 
 
     @media (max-width: 768px) {
-        padding: 0.8rem var(--spacing-small);
-        gap: 0.8rem;
-        font-size: 0.85rem;
+        margin: var(--spacing-small);
         height: auto;
-        min-height: 4rem;
+        background: color-mix(in srgb, var(--text-dark) 40%, transparent);
+        border-radius: calc(var(--spacing-small) / 2);
+        box-sizing: border-box;
+        padding: calc(var(--spacing-small) / 2) var(--spacing-small);
+        backdrop-filter: blur(4px);
         flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0;
+
+        .nav-toggle {
+            display: inline-flex;
+            margin-left: auto;
+        }
+
+        .nav-menu {
+            width: 100%;
+            margin-left: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-small);
+            position: relative;
+            padding-top: 0;
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-6px);
+            overflow: hidden;
+            transition: all 0.4s ease-in-out;
+
+            &>a {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+
+        &.nav-open {
+            .nav-menu {
+                padding-top: var(--spacing-small);
+                max-height: 240px;
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-actions {
+            width: 100%;
+            justify-content: space-between;
+        }
     }
 
     .hero-logo {
         height: 30%;
+        width: auto;
+        max-height: 3.5rem;
 
         @media (max-width: 768px) {
-            height: 48px;
+            height: 2rem;
+            max-height: 2rem;
         }
     }
 
@@ -80,7 +168,9 @@ nav {
         font-size: 0.75rem;
         letter-spacing: 0.04em;
         text-transform: uppercase;
-        margin-left: auto;
+        margin-left: 0;
+
+
     }
 
     .nav-stars-value {
@@ -96,6 +186,13 @@ nav {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+    }
+
+
+    @media (max-width: 768px) {
+        .nav-stars {
+            justify-content: flex-start;
+        }
     }
 }
 
@@ -117,10 +214,15 @@ nav {
     color: var(--text-light);
 
     @media (max-width: 768px) {
-        padding: 6rem var(--spacing-small) 0 var(--spacing-small);
+        padding: var(--spacing-small);
         height: auto;
         min-height: 100dvh;
         background-position: center center;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: var(--spacing-small);
+
     }
 
     &::before {
@@ -144,28 +246,38 @@ nav {
         font-family: Chillax;
         font-weight: 500;
         margin: 0;
-        font-size: 0.8rem;
+        font-size: 0.8vmax;
         flex: 1;
-        max-width: 600px;
+
+
+        @media (max-width: 1200px) {
+            font-size: 1.1vmax;
+        }
 
         @media (max-width: 768px) {
-            padding-left: 0;
-            font-size: 1.05rem;
-            line-height: 1.6;
+            font-size: 1.5vmax;
+            line-height: 1.5vmax;
+            flex: unset;
         }
 
         &:first-of-type {
-            font-size: 5.5rem;
+            font-size: 5vmax;
             font-style: normal;
             font-variation-settings: "wght" 700;
             text-align: left;
             flex: 2;
             font-family: "Cabinet Grotesk";
             text-transform: none;
-            line-height: 4.5rem;
+            line-height: 4vmax;
+
+
+
 
             @media (max-width: 768px) {
-                font-size: 2.5rem;
+                font-size: 3vmax;
+                line-height: 2.5vmax;
+
+                flex: unset;
             }
         }
     }

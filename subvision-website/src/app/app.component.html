@@ -1,23 +1,34 @@
-<nav>
+<nav [class.nav-open]="isNavOpen">
   <img class="hero-logo" [src]="logoSrc" alt="Subvision logo">
-  <a class="moving-letters" href="https://tirsub.ffessm.fr" target="_blank">Le Tir Sur Cible</a>
-  <a class="moving-letters" href="https://github.com/subvision-soft" target="_blank">Contribuer</a>
-  <a class="nav-stars" href="https://github.com/subvision-soft/subvision-core" target="_blank" rel="noopener noreferrer"
-    aria-label="Stars sur GitHub">
-    <ng-icon name="octStarFill" class="nav-stars-icon" aria-hidden="true"></ng-icon>
-    <span class="nav-stars-value">{{ formatCompact(starsCount) }}</span>
-  </a>
-  <button class="theme-toggle" type="button" (click)="toggleTheme()" [attr.aria-pressed]="isDark"
-    [attr.aria-label]="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
-    <ng-icon class="theme-toggle-icon" [name]="isDark ? 'octSun' : 'octMoon'" aria-hidden="true"></ng-icon>
+  <button class="nav-toggle" type="button" (click)="toggleNav()" [attr.aria-expanded]="isNavOpen"
+    aria-controls="nav-menu" aria-label="Toggle navigation menu">
+    <ng-icon class="nav-toggle-icon" [name]="isNavOpen ? 'octX' : 'octThreeBars'" aria-hidden="true"></ng-icon>
   </button>
+  <div id="nav-menu" class="nav-menu">
+    <a class="moving-letters" href="https://tirsub.ffessm.fr" target="_blank">Le Tir Sur Cible</a>
+    <a class="moving-letters" href="https://github.com/subvision-soft" target="_blank">Contribuer</a>
+    <div class="nav-actions">
+      <a class="nav-stars" href="https://github.com/subvision-soft/subvision-core" target="_blank"
+        rel="noopener noreferrer" aria-label="Stars sur GitHub">
+        <ng-icon name="octStarFill" class="nav-stars-icon" aria-hidden="true"></ng-icon>
+        <span class="nav-stars-value">{{ formatCompact(starsCount) }}</span>
+      </a>
+      <button class="theme-toggle" type="button" (click)="toggleTheme()" [attr.aria-pressed]="isDark"
+        [attr.aria-label]="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+        <ng-icon class="theme-toggle-icon" [name]="isDark ? 'octSun' : 'octMoon'" aria-hidden="true"></ng-icon>
+      </button>
+    </div>
+  </div>
 </nav>
 <section id="hero">
-  <p>Mieux observer pour performer
+  <p>
+    <span>Observer</span><br>
+    <span>pour</span><br>
+    <span>mieux performer</span>
   </p>
   <p>Subvision est un système de notation automatique dédié au tir sur cible subaquatique. Là où la notation est
-    aujourd'hui manuelle, subjective et complexe à réaliser, Subvision analyse une simple photo de la cible tir et
-    calcule le score en quelques instants. Sans intervention humaine, sans marge d'erreur. L'objectif du projet est
+    aujourd'hui manuelle, subjective et complexe à réaliser, Subvision analyse une simple photo de la cible de tir et
+    calcule le score en un instant. Sans intervention humaine, sans marge d'erreur. L'objectif du projet est
     d'être homologué par la FFESSM pour intégrer le circuit officiel des compétitions françaises de tir subaquatique.
   </p>
 </section>
