@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+    // import Chillax Font from public folder
+    @font-face {
+        font-family: 'Chillax';
+        src: url('/fonts/Chillax-Variable.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+
+    color-scheme: light dark;
+    --sky-aqua: #2acaeeff;
+    --amber-flame: #ffba00ff;
+    --ruby-red: #b40324ff;
+    --dark-amethyst: #351756ff;
+    --blackberry-cream: #4a2b45ff;
+    --text-light: light-dark(var(--dark-amethyst), #f0f0f0ff);
+    --text-dark: light-dark(#f0f0f0ff, var(--dark-amethyst));
+    --hero-bg: light-dark(url('/img/hero_bg.light.jpg'), url('/img/hero_bg.dark.jpg'));
+
+    --spacing-small: 1rem;
+    --spacing-medium: 2rem;
+    --spacing-large: 4rem;
+    --spacing-xlarge: 8rem;
+}
+
+:root[data-theme='light'] {
+    color-scheme: light;
+    --text-light: var(--dark-amethyst);
+    --text-dark: #f0f0f0ff;
+    --hero-bg: url('/img/hero_bg.light.jpg');
+}
+
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    --text-light: #f0f0f0ff;
+    --text-dark: var(--dark-amethyst);
+    --hero-bg: url('/img/hero_bg.dark.jpg');
+}
+
+a {
+    text-decoration: none;
+    transition: 250ms ease-in-out;
+    color: var(--text-light);
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

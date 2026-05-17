@@ -1,0 +1,116 @@
+nav {
+    padding: 0 var(--spacing-large);
+    color: var(--text-light);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    gap: var(--spacing-medium);
+    height: 8rem;
+    font-family: Chillax;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    .theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.4rem 0.8rem 0.4rem calc(0.4rem + 4px);
+        border-radius: 999px;
+        border: 2px solid currentColor;
+        background: transparent;
+        color: inherit;
+        font-family: inherit;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+
+        &:hover {
+            background-color: color-mix(in srgb, currentColor 15%, transparent);
+        }
+    }
+
+    .toggle-indicator {
+        width: 0.85rem;
+        height: 0.85rem;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 15%, transparent);
+    }
+}
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    text-align: left;
+    padding: 8rem var(--spacing-large) 0 var(--spacing-large);
+    box-sizing: border-box;
+    height: 100dvh;
+    position: relative;
+    background-image: var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: color-mix(in srgb, light-dark(#fff, #000) 45%, transparent);
+        pointer-events: none;
+    }
+
+    >* {
+        position: relative;
+        z-index: 1;
+    }
+
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 600px;
+        width: 70%;
+        text-align: justify;
+        color: var(--text-light);
+        flex: 1;
+
+        .hero-logo {
+            width: 60%;
+            height: auto;
+        }
+
+        p {
+            font-family: Chillax;
+            font-weight: 600;
+            padding-left: 2%;
+            margin: 0;
+            font-size: 1.15rem;
+        }
+    }
+
+    footer {
+        text-align: right;
+        margin: 0;
+        font-family: Chillax;
+        font-weight: bold;
+        color: var(--text-light);
+        height: 8rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+}

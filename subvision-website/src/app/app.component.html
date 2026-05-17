@@ -1,0 +1,22 @@
+<nav>
+  <a href="https://tirsub.ffessm.fr" target="_blank">le tir sur cible</a>
+  <a href="https://github.com/subvision-soft" target="_blank">Contribuer</a>
+  <button class="theme-toggle" type="button" (click)="toggleTheme()" [attr.aria-pressed]="isDark"
+    [attr.aria-label]="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+    <span class="toggle-indicator" aria-hidden="true"></span>
+    <span class="toggle-label">{{ isDark ? 'Sombre' : 'Clair' }}</span>
+  </button>
+</nav>
+<section id="hero">
+  <div class="hero-content">
+    <img class="hero-logo" [src]="logoSrc" alt="Subvision logo">
+    <p>Subvision est un système de notation automatique dédié au tir sur cible subaquatique. Là où la notation est
+      aujourd'hui manuelle, subjective et complexe à réaliser, Subvision analyse une simple photo de la cible tir et
+      calcule le score en quelques instants. Sans intervention humaine, sans marge d'erreur. L'objectif du projet est
+      d'être homologué par la FFESSM pour intégrer le circuit officiel des compétitions françaises de tir subaquatique.
+    </p>
+  </div>
+  <footer>
+    <a href="https://github.com/subvision-soft" target="_blank" rel="noopener noreferrer">github.com/subvision-soft</a>
+  </footer>
+</section>
